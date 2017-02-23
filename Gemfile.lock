@@ -46,7 +46,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -75,6 +75,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
+    pg (0.19.0-x86-mingw32)
     puma (3.7.1)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -145,8 +146,10 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
   jbuilder (~> 2.5)
   jquery-rails
+  pg
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
