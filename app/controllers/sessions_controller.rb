@@ -11,8 +11,10 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       # Create an error message.
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Invalid email/password combination' }
+        format.json { render :show, status: :created, location: @user }
+      end
     end
   end
 
