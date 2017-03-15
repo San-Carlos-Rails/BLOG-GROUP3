@@ -22,3 +22,6 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+# .gitignore
+/config/initializers/app_environment_variables.rb
