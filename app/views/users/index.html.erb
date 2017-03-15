@@ -4,9 +4,15 @@
 <%= will_paginate %>
 
 <ul class="users">
-  <% @users.each do |user| %>
-    <%= render @users %>
-  <% end %>
+    <table>
+      <%= render @users %>
+    </table>  
 </ul>
 
 <%= will_paginate %>
+
+<style>
+  .gravatar{
+        margin-top: 20px;
+  }
+</style>
