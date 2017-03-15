@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     else
       # Create an error message.
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Invalid email/password combination' }
+        format.html { redirect_to root_path, notice: 'Invalid email/password combination+valerie' }
         format.json { render :show, status: :created, location: @user }
       end
     end

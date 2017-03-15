@@ -1,6 +1,11 @@
 class User < ApplicationRecord
+<<<<<<< Updated upstream
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
+=======
+  has_many :microposts, dependent: :destroy
+  before_save { email.downcase! }
+>>>>>>> Stashed changes
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -15,6 +20,7 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+<<<<<<< Updated upstream
 
   # Returns a random token.
   def User.new_token
@@ -38,4 +44,12 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
   
+=======
+  
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+>>>>>>> Stashed changes
 end
