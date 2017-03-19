@@ -7,10 +7,12 @@
       </td>
       <td>
         <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "DELETE", user, method: :delete,
-                                      data: { confirm: "You sure to delete this user?" },
+        <div style="margin-left: 40px;">
+        <%= link_to "DELETE", user, method: :delete,
+                                      data: { confirm: "Are you sure you want to delete this user?" },
                                       class: 'btn btn-xs btn-danger',
                                       title: "Delete User" %>
+        </div>
         <% end %>
     </td>
   </tr>
