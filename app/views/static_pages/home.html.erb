@@ -35,13 +35,16 @@
 <% end %>
 
 <script>
-  //alert($("#notice").html().split("+")[1])
-  if($("#notice").html().split("+")[1] == "valerie"){
-    $("#login-modal").modal('show');
-    $("#error").html($("#notice").html()).css("text-align", "center").show();
-    $(document).on('hidden.bs.modal', function (e) {
-      $("#error").hide();
-    });
+  if($("#notice").html() == undefined){
+   //do nothing
+  }else{
+     if($("#notice").html().split("+")[1] == "valerie"){
+        $("#login-modal").modal('show');
+        $("#error").html($("#notice").html().split("+")[0]).css("text-align", "center").show();
+        $(document).on('hidden.bs.modal', function (e) {
+          $("#error").hide();
+        });
+      } 
   }
 </script>
 
