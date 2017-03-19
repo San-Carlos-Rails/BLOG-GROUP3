@@ -8,7 +8,8 @@
   <span class="timestamp" style="font-size: 12px;">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
-      <%= link_to " ", micropost, class: "btn btn-default btn-xs glyphicon glyphicon-trash glyphicon-xs", method: :delete,
+      <%= link_to " ", micropost, class: "btn btn-danger btn-xs glyphicon glyphicon-trash glyphicon-xs", title: "Delete Post",
+                                       method: :delete,
                                        data: { confirm: "Are you sure you want to delete this post?" } %>
     <% end %>
   </span>

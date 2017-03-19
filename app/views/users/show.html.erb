@@ -1,5 +1,4 @@
 <!-- User Profile -->
-
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-12">
@@ -14,6 +13,13 @@
           <%= render 'shared/stats' %>
         </section>
         <div style="margin-left: 750px; width: 30%;">
+      </section>
+      <div class="container">
+        <% flash.each do |key, value| %>
+            <div id="result" hidden><%= value %></div>
+        <% end %>
+      </div>
+      <div style="margin-top: 30px; margin-left: 80px; width: 70%;">
         <%= render 'follow_form' if logged_in? %>
       </div>
       </section>    
@@ -37,6 +43,7 @@
       </section>
     <% end %>
   </div>
+  
   <div class="col-md-6" style="position:absolute; top:310px; bottom:10px; overflow:auto; margin-left: 550px; width:45%;">
     <% if @user.microposts.any? %>
       <h3><i class="glyphicon glyphicon-edit"></i> Microposts (<%= @user.microposts.count %>)</h3>
@@ -52,3 +59,22 @@
   textarea { resize: none; height:200px; width:470px; }
 </style>
 <% end %>
+<style>
+  .fixed { position: fixed; width: 26.5%; }
+  .scrollit { float: right; width: 62%; }
+</style>
+
+
+<script>
+  if($("#result").html() == undefined){
+      // console.log($("#result").html())
+      // do nothing
+    }else{
+      bootbox.alert({
+          message: '<p class="text-center" style="font-size: 1.5em; font-weight: bold;">'+$("#result").html()+'</p>',
+          backdrop: true
+      });
+      $(".bootbox .modal-content").css('height', '4em');
+      $(".bootbox button").hide();
+  }
+</script>
