@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the Blog App!"
+      flash[:success] = "Welcome "+@user.name+" to the Blog App!"
       redirect_to @user
     else
       render 'new'
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted ..."
-    redirect_to users_url
+    redirect_to users_path
   end
 
   def following
