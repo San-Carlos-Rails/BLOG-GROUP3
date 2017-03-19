@@ -6,7 +6,7 @@
             <section class="user_info">
               <%= render 'shared/user_info' %>
             </section>
-             <section class="stats" style="margin-left: 85px; margin-top: 10px;">
+            <section class="stats" style="margin-left: 85px; margin-top: 10px;">
               <%= render 'shared/stats' %>
             </section>
         </div>
@@ -22,12 +22,6 @@
   <% else %>
   <div class="bgbackground" style="height: 520px; margin-top: 100px; border-radius: 200px;">
     <p id="notice" hidden><%= notice %></p>
-<!--     <h1>Welcome to Group 3 BLOG App</h1>
-
-    <h2>
-      Super Design will be available soon...
-    </h2>
- -->  
       <p align="center">
       <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-success", style: "margin-top: 410px;" %>
       </p>
@@ -48,5 +42,5 @@
 <style type="text/css">
   .fixed { position: fixed; width: 26.5%; }
   .scrollit { float: right; width: 62%; }
-  .bgbackground { background-image: url(/assets/bg4.jpg); }
+  .bgbackground { background-image: url(http://res.cloudinary.com/mirandasy/image/upload/v1489918947/bg4_iagqc8.jpg); }
 </style>
