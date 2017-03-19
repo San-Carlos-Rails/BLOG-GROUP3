@@ -8,10 +8,29 @@
       <%= render @users %>
     </table>  
 </ul>
-
+<div class="container">
+    <% flash.each do |key, value| %>
+      <div id="result" hidden><%= value %></div>
+    <% end %>
+</div>
 </center>
+
 <style>
   .gravatar{
       margin-top: 20px;
   }
 </style>
+
+<script>
+  if($("#result").html() == undefined){
+      // console.log($("#result").html())
+      // do nothing
+    }else{
+      bootbox.alert({
+          message: '<p class="text-center" style="font-size: 1.5em; font-weight: bold;">'+$("#result").html()+'</p>',
+          backdrop: true
+      });
+      $(".bootbox .modal-content").css('height', '4em');
+      $(".bootbox button").hide();
+  }
+</script>

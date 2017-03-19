@@ -10,6 +10,11 @@
               <%= render 'shared/stats' %>
             </section>
         </div>
+       <div class="container">
+            <% flash.each do |key, value| %>
+              <div id="result" hidden><%= value %></div>
+            <% end %>
+        </div>
         <section class="micropost_form">
           <%= render 'shared/micropost_form' %>
         </section>
@@ -21,7 +26,7 @@
     </div>
   <% else %>
   <div class="bgbackground" style="height: 520px; margin-top: 100px; border-radius: 200px;">
-    <p id="notice" hidden><%= notice %></p>
+      <p id="notice" hidden><%= notice %></p>
       <p align="center">
       <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-success", style: "margin-top: 410px;" %>
       </p>
@@ -39,6 +44,17 @@
           $("#error").hide();
         });
       } 
+  }
+  if($("#result").html() == undefined){
+    // console.log($("#result").html())
+    // do nothing
+  }else{
+    bootbox.alert({
+          message: '<p class="text-center" style="font-size: 1.5em; font-weight: bold;">'+$("#result").html()+'</p>',
+          backdrop: true
+      });
+      $(".bootbox .modal-content").css('height', '4em');
+      $(".bootbox button").hide();
   }
 </script>
 
