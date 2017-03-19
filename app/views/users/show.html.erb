@@ -1,16 +1,26 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
+  <aside class="col-md-4 fixed">
+    <div style="width: 350px; height: 220px; background-color: #f1f1f1; border-radius: 5px;">
+      <section class="user_info">
+        <h1 style="margin-top: 40px; margin-left: 80px;">
+          <%= gravatar_for @user %>
+          <%= @user.name %><br>
+          <p style="font-size: 14px; color: gray;"><%= @user.email %></p>
+        </h1>
+
+      </section>
+      <section class="stats" style="margin-left: 100px; margin-top: 20px; margin-right: 50px;">
+        <%= render 'shared/stats' %>
+      </section>
+      <div style="margin-top: 30px; margin-left: 80px; width: 70%;">
+        <%= render 'follow_form' if logged_in? %>
+      </div>
+    </div>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8 scrollit">
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3><i class="glyphicon glyphicon-edit"></i> Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
@@ -18,3 +28,8 @@
     <% end %>
   </div>
 </div>
+
+<style type="text/css">
+  .fixed { position: fixed; width: 26.5%; }
+  .scrollit { float: right; width: 62%; }
+</style>

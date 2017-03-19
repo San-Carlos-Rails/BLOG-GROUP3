@@ -1,0 +1,39 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-4 fixed">
+    <div style="width: 350px; background-color: white; box-shadow: 2px 2px 2px #888888; border-radius: 5px;">
+        <section class="user_info">
+        <div style="margin-top: 40px; margin-left: 78px;">
+          <%= gravatar_for @user %>
+          <h1><%= @user.name %></h1>
+          <span><%= link_to "View Profile", current_user, class: "btn btn-success btn-xs" %></span>
+          <span><b>Microposts:</b> <%= @user.microposts.count %></span>
+          </div>
+        </section>
+        <section class="stats" style="margin-left: 80px; margin-top: 10px; margin-right: 50px;">
+          <%= render 'shared/stats' %>
+          <% if @users.any? %>
+            <div class="user_avatars" style="margin-top: 20px; margin-bottom: 40px;" >
+              <% @users.each do |user| %>
+                <%= link_to gravatar_for(user, size: 30), user %>
+              <% end %>
+            </div>
+          <% end %>
+        </section>
+      </div>
+  </aside>
+  <div class="col-md-8 scrollit">
+    <h3><%= @title %></h3>
+    <% if @users.any? %><br>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+</div>
+
+<style type="text/css">
+  .fixed { position: fixed; width: 26.5%; }
+  .scrollit { float: right; width: 62%; }
+</style>
