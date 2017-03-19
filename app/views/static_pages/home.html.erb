@@ -6,7 +6,7 @@
             <section class="user_info">
               <%= render 'shared/user_info' %>
             </section>
-             <section class="stats" style="margin-left: 85px; margin-top: 10px;">
+            <section class="stats" style="margin-left: 85px; margin-top: 10px;">
               <%= render 'shared/stats' %>
             </section>
         </div>
@@ -22,12 +22,6 @@
   <% else %>
   <div class="bgbackground" style="height: 520px; margin-top: 100px; border-radius: 200px;">
     <p id="notice" hidden><%= notice %></p>
-<!--     <h1>Welcome to Group 3 BLOG App</h1>
-
-    <h2>
-      Super Design will be available soon...
-    </h2>
- -->  
       <p align="center">
       <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-success", style: "margin-top: 410px;" %>
       </p>
