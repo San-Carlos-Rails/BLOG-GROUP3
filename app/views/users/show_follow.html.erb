@@ -1,19 +1,21 @@
 <% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4 fixed">
-    <div style="width: 350px; background-color: white; box-shadow: 2px 2px 2px #888888; border-radius: 5px;">
+    <div style="width: 350px; background-color: white; box-shadow: 2px 2px 2px #888888; border-radius: 5px; height: 450px;">
         <section class="user_info">
-        <div style="margin-top: 40px; margin-left: 78px;">
+        <div style="margin-top: 40px; margin-left: 40px;">
           <%= gravatar_for @user %>
+          <br>
           <h1><%= @user.name %></h1>
-          <span><%= link_to "View Profile", current_user, class: "btn btn-success btn-xs" %></span>
+          <span><%= link_to "View Profile", current_user, class: "btn btn-success btn-xs" %></span><br>
           <span><b>Microposts:</b> <%= @user.microposts.count %></span>
           </div>
         </section>
-        <section class="stats" style="margin-left: 80px; margin-top: 10px; margin-right: 50px;">
+        <section class="stats" style="margin-left: 80px; margin-top: 10px;">
           <%= render 'shared/stats' %>
+          </section>
           <% if @users.any? %>
-            <div class="user_avatars" style="margin-top: 20px; margin-bottom: 40px;" >
+            <div class="user_avatars" style="margin-left: 50px; margin-top: 20px; margin-right: 30px;" >
               <% @users.each do |user| %>
                 <%= link_to gravatar_for(user, size: 30), user %>
               <% end %>
